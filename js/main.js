@@ -114,13 +114,21 @@ console.log(
 
 let getWeekDay = (d) => {
   const date = new Date(d);
-  const days = ['воскресенье', 'понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота'];
+  const days = [
+    "воскресенье",
+    "понедельник",
+    "вторник",
+    "среда",
+    "четверг",
+    "пятница",
+    "суббота",
+  ];
   return days[date.getDay()];
 };
 
-console.log(getWeekDay('2019-01-30')); 
-console.log(getWeekDay('2019-07-16')); 
-console.log(getWeekDay('2019-07-27')); 
+console.log(getWeekDay("2019-01-30"));
+console.log(getWeekDay("2019-07-16"));
+console.log(getWeekDay("2019-07-27"));
 
 /*
  * #4
@@ -131,13 +139,13 @@ console.log(getWeekDay('2019-07-27'));
 let getLocalDay = (d) => {
   const date = new Date(d);
   let day = date.getDay();
- if (day === 0) day = 7;
+  if (day === 0) day = 7;
   return day;
 };
 
-console.log(getLocalDay('2019-07-16')); 
-console.log(getLocalDay('2019-07-25')); 
-console.log(getLocalDay('2019-07-27')); 
+console.log(getLocalDay("2019-07-16"));
+console.log(getLocalDay("2019-07-25"));
+console.log(getLocalDay("2019-07-27"));
 /*
  * #5
  *
@@ -152,9 +160,9 @@ let getDateAgo = (d, days) => {
   return date.toLocaleDateString().replace(/(\d.*),\s+(\d.*)/gu, "$1");
 };
 
-console.log(getDateAgo('2019-01-29', 1)); 
-console.log(getDateAgo('2019-01-29', 2)); 
-console.log(getDateAgo('2019-01-29', 365)); 
+console.log(getDateAgo("2019-01-29", 1));
+console.log(getDateAgo("2019-01-29", 2));
+console.log(getDateAgo("2019-01-29", 365));
 
 /*
  * #6
@@ -195,16 +203,16 @@ Car.prototype.info = function () {
   return `${this.name} ${this.model}, ${this.engine}cc, year ${this.year}, ${this.used}`;
 };
 
-let car = new Car(2000, 'Lacetti', 'Chevrolet', 2010);
-let car2 = new Car(5000, 'FX50 AWD', 'Infinite', 2019);
-console.log(car.info()); 
-car.used = 'new';
-console.log(car.info()); 
-car.used = 'used';
-console.log(car.info()); 
-console.log(car2.info()); 
-car.used = 'used';
-console.log(car2.info()); 
+let car = new Car(2000, "Lacetti", "Chevrolet", 2010);
+let car2 = new Car(5000, "FX50 AWD", "Infinite", 2019);
+console.log(car.info());
+car.used = "new";
+console.log(car.info());
+car.used = "used";
+console.log(car.info());
+console.log(car2.info());
+car.used = "used";
+console.log(car2.info());
 
 /*
  * #7
@@ -221,24 +229,23 @@ let testPerformance = (iterations, func) => {
   if (typeof func === "function") for (let i = iterations; i--; ) func();
 
   return Date.now() - time;
-}
+};
 
 function test1() {
   let str = myLongStr;
-  while (str.indexOf('o') !== -1) str = str.replace('o', '');
-  while (str.indexOf('a') !== -1) str = str.replace('a', '');
-  while (str.indexOf('e') !== -1) str = str.replace('e', '');
-  while (str.indexOf('u') !== -1) str = str.replace('u', '');
-  while (str.indexOf('i') !== -1) str = str.replace('i', '');
+  while (str.indexOf("o") !== -1) str = str.replace("o", "");
+  while (str.indexOf("a") !== -1) str = str.replace("a", "");
+  while (str.indexOf("e") !== -1) str = str.replace("e", "");
+  while (str.indexOf("u") !== -1) str = str.replace("u", "");
+  while (str.indexOf("i") !== -1) str = str.replace("i", "");
 }
 
 function test2() {
-  const reg = new RegExp('[oaeui]', 'gui');
+  const reg = new RegExp("[oaeui]", "gui");
 
-  myLongStr.replace(reg, '');
-      
-};
+  myLongStr.replace(reg, "");
+}
 
 console.log(testPerformance(100, test1));
-console.log(testPerformance(100, test2)); 
-console.log(testPerformance(100, 12345)); 
+console.log(testPerformance(100, test2));
+console.log(testPerformance(100, 12345));
